@@ -137,7 +137,7 @@
   function openAdmin(){$("adminModal").classList.add("show");$("adminModal").scrollTop=0;if(adminUnlocked)showAdminPanel()}
   function closeAdmin(){$("adminModal").classList.remove("show")}
   $("adminOpen").onclick=openAdmin;$("adminClose").onclick=closeAdmin;$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdmin()});
-  $("loginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminPin").value==="1234"){adminUnlocked=true;$("adminPin").value="";showAdminPanel()}else toast("Incorrect PIN.")});
+  $("loginForm").addEventListener("submit",e=>{e.preventDefault();if($("adminPin").value==="230883"){adminUnlocked=true;$("adminPin").value="";showAdminPanel()}else toast("Incorrect PIN.")});
   function showAdminPanel(){ $("adminLogin").classList.toggle("hidden",adminUnlocked);$("adminPanel").classList.toggle("hidden",!adminUnlocked);if(adminUnlocked){$("adminStoreName").value=settings.name||"";$("whatsappNumber").value="+91 92733 63111";$("upiId").value=settings.upiId||"";renderAdminProducts()} }
   $("logoutAdmin").onclick=()=>{adminUnlocked=false;showAdminPanel();toast("Admin locked.")};
   $("settingsForm").addEventListener("submit",e=>{e.preventDefault();settings.name=$("adminStoreName").value.trim()||"Our Store";settings.whatsapp=STORE_WHATSAPP;settings.upiId=$("upiId").value.trim();persist();setStoreName();toast("Store settings saved.")});
